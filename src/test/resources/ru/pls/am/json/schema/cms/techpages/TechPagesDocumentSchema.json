@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "urn:tech_pages_document#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "integer",
+      "title": "ID",
+      "readOnly": true
+    },
+    "slug": {
+      "type": "string",
+      "title": "Слаг",
+      "pattern": "^[-a-zA-Z0-9_]+$",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "number": {
+      "type": "integer",
+      "title": "Порядковый номер",
+      "minimum": 0,
+      "maximum": 32767
+    },
+    "title": {
+      "type": "string",
+      "title": "Название документа",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "text": {
+      "type": "string",
+      "title": "Текст",
+      "minLength": 1
+    }
+  },
+  "required": ["id", "slug", "number", "title", "text"]
+}

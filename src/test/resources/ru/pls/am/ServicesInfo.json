@@ -1,0 +1,17 @@
+{
+  "services": [
+    {
+      "name": "CMS",
+      "baseUrl": "https://cms-testing.plsolutions.pro/api/v1",
+      "db": {
+        "driver": "postgresql",
+        "url": "192.168.122.23",
+        "port": "5433",
+        "dbName": "acms_testing",
+        "dbUser": "acms_testing",
+        "dbPassword": "acms_Password",
+        "dbSchema": "public"
+      }
+    }
+  ]
+}

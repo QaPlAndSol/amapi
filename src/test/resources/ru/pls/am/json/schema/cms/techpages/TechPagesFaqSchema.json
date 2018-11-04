@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "urn:tech_pages_faq#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "next": {
+      "type": ["string", "null"]
+    },
+    "previous": {
+      "type": ["string", "null"]
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "#/dependencies/section"
+      }
+    }
+  },
+  "required": ["count", "next", "previous", "results"],
+  "dependencies": {
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer",
+          "title": "ID",
+          "readOnly": true
+        },
+        "logo": {
+          "type": ["string", "null"],
+          "title": "Лого",
+          "readOnly": true
+        },
+        "number": {
+          "type": "integer",
+          "title": "Порядковый номер",
+          "minimum": 0,
+          "maximum": 32767
+        },
+        "title": {
+          "type": "string",
+          "title": "Название раздела",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/dependencies/group"
+          }
+        }
+      },
+      "required": ["id", "logo", "number", "title", "groups"]
+    },
+    "group": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer",
+          "title": "ID",
+          "readOnly": true
+        },
+        "number": {
+          "type": "integer",
+          "title": "Порядковый номер",
+          "minimum": 0,
+          "maximum": 32767
+        },
+        "title": {
+          "type": "string",
+          "title": "Название группы",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "answers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/dependencies/answerQuestion"
+          }
+        }
+      },
+      "required": ["id", "number", "title", "answers"]
+    },
+    "answerQuestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer",
+          "title": "ID",
+          "readOnly": true
+        },
+        "number": {
+          "type": "integer",
+          "title": "Порядковый номер",
+          "minimum": 0,
+          "maximum": 32767
+        },
+        "question": {
+          "type": "string"
+        },
+        "answer": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "number", "question", "answer"]
+    }
+  }
+}

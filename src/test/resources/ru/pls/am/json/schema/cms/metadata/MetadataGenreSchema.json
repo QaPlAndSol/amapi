@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "urn:metadata_genres_id#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "title": "Название жанра",
+      "minLength": 1,
+      "maxLength": 255
+    }
+  },
+  "required": ["id", "name"]
+}
